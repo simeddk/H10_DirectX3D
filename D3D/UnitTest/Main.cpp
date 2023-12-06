@@ -7,10 +7,11 @@
 #include "LineTopologyDemo.h"
 #include "LineStarDemo.h"
 #include "TriangleDemo.h"
+#include "RectDemo.h"
 
 void Main::Initialize()
 {
-	Push(new TriangleDemo());
+	Push(new RectDemo());
 }
 
 

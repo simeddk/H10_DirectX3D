@@ -18,6 +18,9 @@
     <ClCompile Include="TriangleDemo.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="RectDemo.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -35,6 +38,9 @@
       <Filter>Line</Filter>
     </ClInclude>
     <ClInclude Include="TriangleDemo.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="RectDemo.h">
       <Filter>Mesh</Filter>
     </ClInclude>
   </ItemGroup>
