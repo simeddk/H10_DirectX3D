@@ -41,9 +41,3 @@ void LineColorDemo::Render()
 
 	shader->Draw(0, 0, 2);
 }
-
-//UnresolvedMergeConflict.
-// -> 라인 여러개
-// -> 파이프라인 변경 테스트
-// -> 삼각형, 사각형
-// -> 인덱스버퍼

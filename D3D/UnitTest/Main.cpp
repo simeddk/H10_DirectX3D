@@ -4,10 +4,13 @@
 
 #include "LineDemo.h"
 #include "LineColorDemo.h"
+#include "LineTopologyDemo.h"
+#include "LineStarDemo.h"
+#include "TriangleDemo.h"
 
 void Main::Initialize()
 {
-	Push(new LineColorDemo());
+	Push(new TriangleDemo());
 }
 
 
