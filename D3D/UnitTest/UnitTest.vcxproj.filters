@@ -21,6 +21,18 @@
     <ClCompile Include="RectDemo.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="WorldDemo.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiWorldDemo.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBufferDemo.cpp">
+      <Filter>Index</Filter>
+    </ClCompile>
+    <ClCompile Include="GridDemo.cpp">
+      <Filter>Index</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -43,6 +55,18 @@
     <ClInclude Include="RectDemo.h">
       <Filter>Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="WorldDemo.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiWorldDemo.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBufferDemo.h">
+      <Filter>Index</Filter>
+    </ClInclude>
+    <ClInclude Include="GridDemo.h">
+      <Filter>Index</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Line">
@@ -50,6 +74,12 @@
     </Filter>
     <Filter Include="Mesh">
       <UniqueIdentifier>{01f2a5a0-7e1f-422d-8b80-8a205abc4c5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{71b8b2f7-20f8-449d-83c7-18a1d995f786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Index">
+      <UniqueIdentifier>{48327a8a-797d-46a8-a8dc-cae35e1333fa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

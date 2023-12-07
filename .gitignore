@@ -9,6 +9,7 @@
 
 # My Ignore
 Debug_*/
+*.zip
 
 # User-specific files
 *.rsuser

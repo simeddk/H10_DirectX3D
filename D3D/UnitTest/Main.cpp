@@ -8,10 +8,14 @@
 #include "LineStarDemo.h"
 #include "TriangleDemo.h"
 #include "RectDemo.h"
+#include "WorldDemo.h"
+#include "MultiWorldDemo.h"
+#include "IndexBufferDemo.h"
+#include "GridDemo.h"
 
 void Main::Initialize()
 {
-	Push(new RectDemo());
+	Push(new GridDemo());
 }
 
 
