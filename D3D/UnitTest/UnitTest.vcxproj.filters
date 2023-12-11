@@ -33,6 +33,15 @@
     <ClCompile Include="GridDemo.cpp">
       <Filter>Index</Filter>
     </ClCompile>
+    <ClCompile Include="CubeDemo.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureDemo.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="AddressDemo.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -67,6 +76,15 @@
     <ClInclude Include="GridDemo.h">
       <Filter>Index</Filter>
     </ClInclude>
+    <ClInclude Include="CubeDemo.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureDemo.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="AddressDemo.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Line">
@@ -80,6 +98,9 @@
     </Filter>
     <Filter Include="Index">
       <UniqueIdentifier>{48327a8a-797d-46a8-a8dc-cae35e1333fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{6cf29ef6-48ca-42ae-86d2-8707023f55f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddressDemo.cpp" />
+    <ClCompile Include="CubeDemo.cpp" />
     <ClCompile Include="GridDemo.cpp" />
     <ClCompile Include="IndexBufferDemo.cpp" />
     <ClCompile Include="LineColorDemo.cpp" />
@@ -29,10 +31,13 @@
     <ClCompile Include="MultiWorldDemo.cpp" />
     <ClCompile Include="RectDemo.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TextureDemo.cpp" />
     <ClCompile Include="TriangleDemo.cpp" />
     <ClCompile Include="WorldDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddressDemo.h" />
+    <ClInclude Include="CubeDemo.h" />
     <ClInclude Include="GridDemo.h" />
     <ClInclude Include="IndexBufferDemo.h" />
     <ClInclude Include="LineColorDemo.h" />
@@ -43,6 +48,7 @@
     <ClInclude Include="MultiWorldDemo.h" />
     <ClInclude Include="RectDemo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TextureDemo.h" />
     <ClInclude Include="TriangleDemo.h" />
     <ClInclude Include="WorldDemo.h" />
   </ItemGroup>

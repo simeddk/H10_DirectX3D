@@ -3,7 +3,10 @@
 
 void GridDemo::Initialize()
 {
-	shader = new Shader(L"07_Index.fxo");
+	Context::Get()->GetCamera()->Position(52, 20, -20 );
+	Context::Get()->GetCamera()->RotationDegree(12, 1, 0);
+
+	shader = new Shader(L"08_Grid.fxo");
 
 	//Vertex Data
 	{
@@ -17,8 +20,8 @@ void GridDemo::Initialize()
 				UINT index = (width + 1) * y  + x;
 
 				vertices[index].Position.x = (float)x;
-				vertices[index].Position.y = (float)y;
-				vertices[index].Position.z = 0;
+				vertices[index].Position.y = 0.f;
+				vertices[index].Position.z = (float)y;
 			}
 		}
 	}
@@ -81,6 +84,10 @@ void GridDemo::Destroy()
 
 	SafeRelease(vertexBuffer);
 	SafeRelease(indexBuffer);
+
+	SafeDeleteArray(vertices);
+	SafeDeleteArray(indices);
+
 }
 
 void GridDemo::Update()
@@ -99,7 +106,7 @@ void GridDemo::Render()
 	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	static bool bWire = false;
-	ImGui::Checkbox("WireFrame", &bWire);
+	ImGui::Checkbox("Grid WireFrame", &bWire);
 
 	shader->DrawIndexed(0, bWire ? 1 : 0, indexCount);
 }
