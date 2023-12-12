@@ -8,7 +8,7 @@ void TerrainDemo::Initialize()
 	((Freedom*)Context::Get()->GetCamera())->Speed(50);
 
 	shader = new Shader(L"11_Terrain.fxo");
-	terrain = new Terrain(shader, L"HeightMap256.png");
+	terrain = new Terrain(shader, L"Terrain/Gray256.png");
 	
 }
 
