@@ -42,6 +42,9 @@
     <ClCompile Include="AddressDemo.cpp">
       <Filter>Texture</Filter>
     </ClCompile>
+    <ClCompile Include="TerrainDemo.cpp">
+      <Filter>Terrain</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -85,6 +88,9 @@
     <ClInclude Include="AddressDemo.h">
       <Filter>Texture</Filter>
     </ClInclude>
+    <ClInclude Include="TerrainDemo.h">
+      <Filter>Terrain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Line">
@@ -101,6 +107,9 @@
     </Filter>
     <Filter Include="Texture">
       <UniqueIdentifier>{6cf29ef6-48ca-42ae-86d2-8707023f55f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Terrain">
+      <UniqueIdentifier>{f2adf0e6-250a-47ec-bc16-57de0996449b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

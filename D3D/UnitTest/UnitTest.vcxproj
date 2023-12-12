@@ -31,6 +31,7 @@
     <ClCompile Include="MultiWorldDemo.cpp" />
     <ClCompile Include="RectDemo.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TerrainDemo.cpp" />
     <ClCompile Include="TextureDemo.cpp" />
     <ClCompile Include="TriangleDemo.cpp" />
     <ClCompile Include="WorldDemo.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="MultiWorldDemo.h" />
     <ClInclude Include="RectDemo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TerrainDemo.h" />
     <ClInclude Include="TextureDemo.h" />
     <ClInclude Include="TriangleDemo.h" />
     <ClInclude Include="WorldDemo.h" />

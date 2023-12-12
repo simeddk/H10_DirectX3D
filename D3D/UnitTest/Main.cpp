@@ -15,10 +15,11 @@
 #include "CubeDemo.h"
 #include "TextureDemo.h"
 #include "AddressDemo.h"
+#include "TerrainDemo.h"
 
 void Main::Initialize()
 {
-	Push(new AddressDemo());
+	Push(new TerrainDemo());
 }
 
 
