@@ -36,6 +36,18 @@ void Terrain::Render()
 {
 	VisibleNormal();
 
+	if (baseMap != nullptr)
+		shader->AsSRV("BaseMap")->SetResource(baseMap->SRV());
+
+	if (layerMap != nullptr)
+		shader->AsSRV("LayerMap")->SetResource(layerMap->SRV());
+
+	if (alphaMap != nullptr)
+		shader->AsSRV("AlphaMap")->SetResource(alphaMap->SRV());
+
+	shader->AsScalar("Tile")->SetFloat(tile);
+	shader->AsScalar("AlphaIntensity")->SetFloat(alphaIntensity);
+
 	UINT stride = sizeof(VertexTerrain);
 	UINT offset = 0;
 
@@ -71,6 +83,98 @@ void Terrain::VisibleNormal()
 	}
 }
 
+void Terrain::BaseMap(wstring path)
+{
+	SafeDelete(baseMap);
+
+	baseMap = new Texture(path);
+}
+
+void Terrain::LayerMap(wstring path)
+{
+	SafeDelete(layerMap);
+
+	layerMap = new Texture(path);
+}
+
+void Terrain::AlphaMap(wstring path)
+{
+	SafeDelete(alphaMap);
+
+	alphaMap = new Texture(path);
+}
+
+float Terrain::GetHeightByUV(Vector3& position)
+{
+	UINT x = (UINT)position.x;
+	UINT z = (UINT)position.z;
+
+	if (x < 0 || x > width - 2) return FLT_MIN;
+	if (z < 0 || z > height - 2) return FLT_MIN;
+
+	UINT index[4];
+	index[0] = width * z + x;
+	index[1] = width * (z + 1) + x;
+	index[2] = width * z + (x + 1);
+	index[3] = width * (z + 1) + (x + 1);
+
+	Vector3 v[4];
+	for (UINT i = 0; i < 4; i++)
+		v[i] = vertices[index[i]].Position;
+
+	float ddx = position.x - v[0].x;
+	float ddz = position.z - v[0].z;
+
+	Vector3 result;
+
+	if (ddx + ddz <= 1.f)
+	{
+		result = v[0] + (v[2] - v[0]) * ddx + (v[1] - v[0]) * ddz;
+	}
+	else
+	{
+		ddx = 1.f - ddx;
+		ddz = 1.f - ddz;
+
+		result = v[3] + (v[1] - v[3]) * ddx + (v[2] - v[3]) * ddz;
+	}
+
+	return result.y;
+}
+
+float Terrain::GetHeightByRaycast(Vector3& position)
+{
+	UINT x = (UINT)position.x;
+	UINT z = (UINT)position.z;
+
+	if (x < 0 || x > width - 2) return FLT_MIN;
+	if (z < 0 || z > height - 2) return FLT_MIN;
+
+	UINT index[4];
+	index[0] = width * z + x;
+	index[1] = width * (z + 1) + x;
+	index[2] = width * z + (x + 1);
+	index[3] = width * (z + 1) + (x + 1);
+
+	Vector3 p[4];
+	for (UINT i = 0; i < 4; i++)
+		p[i] = vertices[index[i]].Position;
+
+	Vector3 start = Vector3(position.x, 100.f ,position.z);
+	Vector3 direction = Vector3(0, -1, 0);
+
+	float u, v, distance;
+	Vector3 result = Vector3(-1, FLT_MIN, -1);
+
+	if (D3DXIntersectTri(&p[0], &p[1], &p[2], &start, &direction, &u, &v, &distance))
+		result = p[0] + (p[1] - p[0]) * u + (p[2] - p[0]) * v;
+
+	if (D3DXIntersectTri(&p[3], &p[1], &p[2], &start, &direction, &u, &v, &distance))
+		result = p[3] + (p[1] - p[3]) * u + (p[2] - p[3]) * v;
+
+	return result.y;
+}
+
 void Terrain::CreateVertexData()
 {
 	width = heightMap->GetWidth();
@@ -92,6 +196,9 @@ void Terrain::CreateVertexData()
 			vertices[index].Position.x = (float)x;
 			vertices[index].Position.y = pixels[reverse].r * 255.f / 10.f;
 			vertices[index].Position.z = (float)y;
+
+			vertices[index].Uv.x = x / (float)(width - 1);
+			vertices[index].Uv.y = 1.f - (y / (float)(height - 1));
 		}
 	}
 	

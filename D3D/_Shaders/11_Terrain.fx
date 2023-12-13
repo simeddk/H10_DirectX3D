@@ -92,6 +92,63 @@ float4 PS_HeightColor_PerPixel(VertexOutput_HeightColor input) : SV_Target
 	return GetHeightColor(input.wPosition.y); //SS
 }
 
+//-----------------------------------------------------------------------------
+//Lambert
+//-----------------------------------------------------------------------------
+struct VertexInput_Lambert
+{
+	float4 Position : Position;
+	float3 Normal : Normal;
+};
+
+struct VertexOutput_Lambert
+{
+	float4 Position : SV_Position;
+	float4 Color : Color;
+	float3 wPosition : Position1;
+	float3 Normal : Normal;
+};
+
+VertexOutput_Lambert VS_Lambert(VertexInput_Lambert input)
+{
+	VertexOutput_Lambert output;
+
+	output.Position = mul(input.Position, World);
+	output.wPosition = output.Position.xyz;
+	output.Color = float4(1, 1, 1, 1);
+	
+	output.Position = mul(output.Position, View);
+	output.Position = mul(output.Position, Projection);
+	
+	output.Normal = mul(input.Normal, (float3x3)World);
+	
+	return output;
+}
+
+float3 LightDirection;
+float4 PS_Lambert(VertexOutput_Lambert input) : SV_Target
+{
+	float4 diffuse = GetHeightColor(input.wPosition.y); //SS
+	
+	float3 normal = normalize(input.Normal);
+	float lambert = dot(normal, -LightDirection);
+	
+	return diffuse * lambert;
+}
+
+float4 PS_HalfLambert(VertexOutput_Lambert input) : SV_Target
+{
+	float4 diffuse = GetHeightColor(input.wPosition.y); //SS
+	
+	float3 normal = normalize(input.Normal);
+	float lambert = dot(normal, -LightDirection) * 0.5f + 0.5f; //-1 ~ 1 => 0 ~ 1
+	
+	return diffuse * lambert;
+}
+
+//-----------------------------------------------------------------------------
+//Pipelines
+//-----------------------------------------------------------------------------
 technique11 T0
 {
 	pass P0
@@ -118,5 +175,17 @@ technique11 T0
 	{
 		SetVertexShader(CompileShader(vs_5_0, VS_HeightColor()));
 		SetPixelShader(CompileShader(ps_5_0, PS_HeightColor_PerPixel()));
+	}
+
+	pass P4
+	{
+		SetVertexShader(CompileShader(vs_5_0, VS_Lambert()));
+		SetPixelShader(CompileShader(ps_5_0, PS_Lambert()));
+	}
+
+	pass P5
+	{
+		SetVertexShader(CompileShader(vs_5_0, VS_Lambert()));
+		SetPixelShader(CompileShader(ps_5_0, PS_HalfLambert()));
 	}
 }

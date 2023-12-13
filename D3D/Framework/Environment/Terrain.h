@@ -13,6 +13,15 @@ public:
 
 	UINT& Pass() { return pass; }
 
+	void BaseMap(wstring path);
+	void LayerMap(wstring path);
+	void AlphaMap(wstring path);
+	void Tile(float tile) { this->tile = tile; }
+	void AlphaIntensity(float intensity) { alphaIntensity = intensity; }
+
+	float GetHeightByUV(Vector3& position);
+	float GetHeightByRaycast(Vector3& position);
+
 private:
 	void CreateVertexData();
 	void CreateIndexData();
@@ -24,6 +33,7 @@ private:
 	{
 		Vector3 Position = Vector3(0, 0, 0);
 		Vector3 Normal = Vector3(0, 0, 0);
+		Vector2 Uv = Vector2(0, 0);
 	};
 
 private:
@@ -43,4 +53,10 @@ private:
 	Matrix world;
 
 	Texture* heightMap;
+	Texture* baseMap = nullptr;
+	Texture* layerMap = nullptr;
+	Texture* alphaMap = nullptr;
+
+	float tile = 1.f;
+	float alphaIntensity = 1.f;
 };

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="AddressDemo.cpp" />
     <ClCompile Include="CubeDemo.cpp" />
+    <ClCompile Include="GetHeightDemo.cpp" />
     <ClCompile Include="GridDemo.cpp" />
     <ClCompile Include="IndexBufferDemo.cpp" />
     <ClCompile Include="LineColorDemo.cpp" />
@@ -39,6 +40,7 @@
   <ItemGroup>
     <ClInclude Include="AddressDemo.h" />
     <ClInclude Include="CubeDemo.h" />
+    <ClInclude Include="GetHeightDemo.h" />
     <ClInclude Include="GridDemo.h" />
     <ClInclude Include="IndexBufferDemo.h" />
     <ClInclude Include="LineColorDemo.h" />
