@@ -20,4 +20,8 @@ private:
 	Shader* shader = nullptr;
 
 	MeshQuad* quad;
+	MeshGrid* grid;
+	MeshCube* cube;
+	MeshCylinder* cylinders[10];
+	MeshSphere* spheres[10];
 };

@@ -43,6 +43,10 @@ void Mesh::Render()
 	D3D::GetDC()->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
+	sWorld->SetMatrix(world);
+	sView->SetMatrix(Context::Get()->View());
+	sProjection->SetMatrix(Context::Get()->Projection());
+
 	if (diffuseMap != nullptr)
 		sDiffuseMap->SetResource(diffuseMap->SRV());
 
