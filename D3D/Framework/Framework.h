@@ -82,4 +82,7 @@ typedef D3DXPLANE Plane;
 #include "Utilities/String.h"
 #include "Utilities/Path.h"
 
+#include "Meshes/Mesh.h"
+#include "Meshes/MeshQuad.h"
+
 #include "Environment/Terrain.h"

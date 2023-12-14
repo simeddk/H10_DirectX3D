@@ -48,6 +48,9 @@
     <ClCompile Include="GetHeightDemo.cpp">
       <Filter>Terrain</Filter>
     </ClCompile>
+    <ClCompile Include="MeshDemo.cpp">
+      <Filter>Mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -96,6 +99,9 @@
     </ClInclude>
     <ClInclude Include="GetHeightDemo.h">
       <Filter>Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshDemo.h">
+      <Filter>Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

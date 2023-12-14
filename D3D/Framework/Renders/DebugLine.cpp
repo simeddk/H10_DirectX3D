@@ -45,6 +45,10 @@ DebugLine::DebugLine()
 	}
 
 	D3DXMatrixIdentity(&world);
+
+	sWorld = shader->AsMatrix("World");
+	sView = shader->AsMatrix("View");
+	sProjection = shader->AsMatrix("Projection");
 }
 
 DebugLine::~DebugLine()
@@ -56,9 +60,9 @@ DebugLine::~DebugLine()
 
 void DebugLine::Update()
 {
-	shader->AsMatrix("World")->SetMatrix(world);
-	shader->AsMatrix("View")->SetMatrix(Context::Get()->View());
-	shader->AsMatrix("Projection")->SetMatrix(Context::Get()->Projection());
+	sWorld->SetMatrix(world);
+	sView->SetMatrix(Context::Get()->View());
+	sProjection->SetMatrix(Context::Get()->Projection());
 }
 
 void DebugLine::Render()

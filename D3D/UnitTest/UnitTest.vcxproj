@@ -29,6 +29,7 @@
     <ClCompile Include="LineStarDemo.cpp" />
     <ClCompile Include="LineTopologyDemo.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MeshDemo.cpp" />
     <ClCompile Include="MultiWorldDemo.cpp" />
     <ClCompile Include="RectDemo.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="LineStarDemo.h" />
     <ClInclude Include="LineTopologyDemo.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="MeshDemo.h" />
     <ClInclude Include="MultiWorldDemo.h" />
     <ClInclude Include="RectDemo.h" />
     <ClInclude Include="stdafx.h" />

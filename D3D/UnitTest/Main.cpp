@@ -17,10 +17,11 @@
 #include "AddressDemo.h"
 #include "TerrainDemo.h"
 #include "GetHeightDemo.h"
+#include "MeshDemo.h"
 
 void Main::Initialize()
 {
-	Push(new GetHeightDemo());
+	Push(new MeshDemo());
 }
 
 

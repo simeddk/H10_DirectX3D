@@ -2,12 +2,8 @@
 //Parmameters
 //-----------------------------------------------------------------------------
 matrix World, View, Projection;
-Texture2D BaseMap;
-Texture2D LayerMap;
-Texture2D AlphaMap;
+Texture2D DiffuseMap;
 float3 LightDirection;
-float Tile;
-float AlphaIntensity;
 
 RasterizerState FillMode_WireFrame
 {
@@ -27,15 +23,15 @@ SamplerState LinearSampler
 struct VertexInput
 {
 	float4 Position : Position;
-	float3 Normal : Normal;
 	float2 Uv : Uv;
+	float3 Normal : Normal;
 };
 
 struct VertexOutput
 {
 	float4 Position : SV_Position;
-	float3 Normal : Normal;
 	float2 Uv : Uv;
+	float3 Normal : Normal;
 };
 
 VertexOutput VS(VertexInput input)
@@ -56,11 +52,7 @@ VertexOutput VS(VertexInput input)
 
 float4 PS(VertexOutput input) : SV_Target
 {
-	float4 base = BaseMap.Sample(LinearSampler, input.Uv * Tile);
-	float4 layer = LayerMap.Sample(LinearSampler, input.Uv * Tile);
-	float4 alpha = AlphaMap.Sample(LinearSampler, input.Uv);
-	
-	float4 diffuse = lerp(base, layer, saturate(alpha.r * AlphaIntensity));
+	float4 diffuse = DiffuseMap.Sample(LinearSampler, input.Uv);
 	
 	float3 normal = normalize(input.Normal);
 	float lambert = saturate(dot(normal, -LightDirection));

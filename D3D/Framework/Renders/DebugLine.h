@@ -47,6 +47,10 @@ private:
 
 	Matrix world;
 
+	ID3DX11EffectMatrixVariable* sWorld;
+	ID3DX11EffectMatrixVariable* sView;
+	ID3DX11EffectMatrixVariable* sProjection;
+
 	VertexLine* vertices;
 	ID3D11Buffer* vertexBuffer;
 
