@@ -51,6 +51,12 @@
     <ClCompile Include="MeshDemo.cpp">
       <Filter>Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="CubeMapDemo.cpp">
+      <Filter>CubeMap</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyCubeDemo.cpp">
+      <Filter>CubeMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -103,6 +109,12 @@
     <ClInclude Include="MeshDemo.h">
       <Filter>Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="CubeMapDemo.h">
+      <Filter>CubeMap</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyCubeDemo.h">
+      <Filter>CubeMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Line">
@@ -122,6 +134,9 @@
     </Filter>
     <Filter Include="Terrain">
       <UniqueIdentifier>{f2adf0e6-250a-47ec-bc16-57de0996449b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CubeMap">
+      <UniqueIdentifier>{1c235575-e28b-44fb-8e1d-5aa184f4c73c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

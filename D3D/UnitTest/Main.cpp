@@ -18,10 +18,13 @@
 #include "TerrainDemo.h"
 #include "GetHeightDemo.h"
 #include "MeshDemo.h"
+#include "CubeMapDemo.h"
+#include "SkyCubeDemo.h"
 
 void Main::Initialize()
 {
-	Push(new MeshDemo());
+	Push(new SkyCubeDemo());
+	Push(new GetHeightDemo());
 }
 
 
