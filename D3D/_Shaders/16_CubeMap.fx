@@ -1,20 +1,9 @@
+#include "00_Global.fx"
+
 //-----------------------------------------------------------------------------
 //Parmameters
 //-----------------------------------------------------------------------------
-matrix World, View, Projection;
 TextureCube CubeMap;
-
-RasterizerState FillMode_WireFrame
-{
-	FillMode = WireFrame;
-};
-
-SamplerState LinearSampler
-{
-	Filter = MIN_MAG_MIP_LINEAR;
-	AddressU = WRAP;
-	AddressV = WRAP;
-};
 
 //-----------------------------------------------------------------------------
 //Render
@@ -40,11 +29,10 @@ VertexOutput VS(VertexInput input)
     
 	output.oPosition = input.Position.xyz;
 	
-	output.Position = mul(input.Position, World);
-	output.Position = mul(output.Position, View);
-	output.Position = mul(output.Position, Projection);
+	output.Position = WorldPosition(input.Position);
+	output.Position = ViewProjection(output.Position);
 	
-	output.Normal = mul(input.Normal, (float3x3)World);
+	output.Normal = WorldNormal(input.Normal);
 	
 	output.Uv = input.Uv;
 	
@@ -74,23 +62,7 @@ float4 PS_WireFrame(VertexOutput input) : SV_Target
 //-----------------------------------------------------------------------------
 technique11 T0
 {
-	pass P0
-	{
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_NDC()));
-	}
-
-	pass P1
-	{
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_Direction()));
-	}
-
-	pass P2
-	{
-		SetRasterizerState(FillMode_WireFrame);
-
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_WireFrame()));
-	}
+	P_VP(P0, VS, PS_NDC)
+	P_VP(P1, VS, PS_Direction)
+	P_RS_VP(P2, FillMode_WireFrame, VS, PS_Direction)
 }

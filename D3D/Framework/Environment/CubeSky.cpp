@@ -33,7 +33,7 @@ void CubeSky::Update()
 {
 	Vector3 camperaPosition;
 	Context::Get()->GetCamera()->Position(&camperaPosition);
-	sphere->Position(camperaPosition);
+	sphere->GetTransform()->Position(camperaPosition);
 
 	sphere->Update();
 }

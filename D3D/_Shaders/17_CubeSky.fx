@@ -1,30 +1,9 @@
+#include "00_Global.fx"
+
 //-----------------------------------------------------------------------------
 //Parmameters
 //-----------------------------------------------------------------------------
-matrix World, View, Projection;
 TextureCube SkyMap;
-
-RasterizerState FillMode_WireFrame
-{
-	FillMode = WireFrame;
-};
-
-RasterizerState FrontCounterClockwise_True
-{
-	FrontCounterClockwise = true;
-};
-
-DepthStencilState DepthEnable_False
-{
-	DepthEnable = false;
-};
-
-SamplerState LinearSampler
-{
-	Filter = MIN_MAG_MIP_LINEAR;
-	AddressU = WRAP;
-	AddressV = WRAP;
-};
 
 //-----------------------------------------------------------------------------
 //Render
@@ -46,10 +25,8 @@ VertexOutput VS(VertexInput input)
     
 	output.oPosition = input.Position.xyz;
 	
-	output.Position = mul(input.Position, World);
-	output.Position = mul(output.Position, View);
-	output.Position = mul(output.Position, Projection);
-	
+	output.Position = WorldPosition(input.Position);
+	output.Position = ViewProjection(output.Position);
 	
 	return output;
 }
@@ -70,27 +47,5 @@ float4 PS_WireFrame(VertexOutput input) : SV_Target
 //-----------------------------------------------------------------------------
 technique11 T0
 {
-	pass P0
-	{
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_NDC()));
-	}
-
-	pass P1
-	{
-		SetRasterizerState(FrontCounterClockwise_True);
-
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_NDC()));
-	}
-
-	pass P2
-	{
-		SetRasterizerState(FrontCounterClockwise_True);
-		SetDepthStencilState(DepthEnable_False, 1);
-
-		SetVertexShader(CompileShader(vs_5_0, VS()));
-		SetPixelShader(CompileShader(ps_5_0, PS_NDC()));
-	}
-
+	P_RS_DSS_VP(P0, FrontCounterClockwise_True, DepthEnable_False, VS, PS_NDC)
 }

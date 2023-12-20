@@ -26,7 +26,6 @@ private:
 	void CreateVertexData();
 	void CreateIndexData();
 	void CreateNormalData();
-	void CreateBuffer();
 
 private:
 	struct VertexTerrain
@@ -44,11 +43,11 @@ private:
 
 	UINT vertexCount;
 	VertexTerrain* vertices;
-	ID3D11Buffer* vertexBuffer;
+	VertexBuffer* vertexBuffer;
 
 	UINT indexCount;
 	UINT* indices;
-	ID3D11Buffer* indexBuffer;
+	IndexBuffer* indexBuffer;
 
 	Matrix world;
 
