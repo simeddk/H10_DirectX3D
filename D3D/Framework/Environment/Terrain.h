@@ -1,6 +1,6 @@
 #pragma once
 
-class Terrain
+class Terrain : public Renderer
 {
 public:
 	Terrain(Shader* shader, wstring heightMapFile);
@@ -10,8 +10,6 @@ public:
 	void Render();
 
 	void VisibleNormal();
-
-	UINT& Pass() { return pass; }
 
 	void BaseMap(wstring path);
 	void LayerMap(wstring path);
@@ -36,20 +34,10 @@ private:
 	};
 
 private:
-	Shader* shader;
-	UINT pass = 0;
-
 	UINT width, height;
 
-	UINT vertexCount;
 	VertexTerrain* vertices;
-	VertexBuffer* vertexBuffer;
-
-	UINT indexCount;
 	UINT* indices;
-	IndexBuffer* indexBuffer;
-
-	Matrix world;
 
 	Texture* heightMap;
 	Texture* baseMap = nullptr;

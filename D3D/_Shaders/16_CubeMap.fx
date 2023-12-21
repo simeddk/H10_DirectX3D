@@ -29,6 +29,9 @@ VertexOutput VS(VertexInput input)
     
 	output.oPosition = input.Position.xyz;
 	
+	input.Position.x += cos(Time * 3.f);
+	input.Position.z += sin(Time * 3.f);
+	
 	output.Position = WorldPosition(input.Position);
 	output.Position = ViewProjection(output.Position);
 	
@@ -42,7 +45,13 @@ VertexOutput VS(VertexInput input)
 
 float4 PS_NDC(VertexOutput input) : SV_Target
 {
-	return CubeMap.Sample(LinearSampler, input.oPosition);
+	float4 cubeMapColor = CubeMap.Sample(LinearSampler, input.oPosition);
+	
+	float4 red = float4(1, 0, 0, 1);
+	float4 blue = float4(0, 0, 1, 1);
+	float alpha = sin(Time * 5) * 0.5f + 0.5f;
+	
+	return saturate(cubeMapColor * lerp(red, blue, alpha));
 }
 
 float4 PS_Direction(VertexOutput input) : SV_Target

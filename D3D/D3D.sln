@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{DA
 		_Shaders\17_CubeSky.fx = _Shaders\17_CubeSky.fx
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataStructure", "DataStructure\DataStructure.vcxproj", "{2BB7104B-E88E-4285-94FF-12B589201617}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -46,6 +48,10 @@ Global
 		{DD00DB93-DC82-4804-82EB-1046CB955B93}.Debug|x86.Build.0 = Debug|Win32
 		{DD00DB93-DC82-4804-82EB-1046CB955B93}.Release|x86.ActiveCfg = Release|Win32
 		{DD00DB93-DC82-4804-82EB-1046CB955B93}.Release|x86.Build.0 = Release|Win32
+		{2BB7104B-E88E-4285-94FF-12B589201617}.Debug|x86.ActiveCfg = Debug|Win32
+		{2BB7104B-E88E-4285-94FF-12B589201617}.Debug|x86.Build.0 = Debug|Win32
+		{2BB7104B-E88E-4285-94FF-12B589201617}.Release|x86.ActiveCfg = Release|Win32
+		{2BB7104B-E88E-4285-94FF-12B589201617}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

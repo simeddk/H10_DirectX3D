@@ -2,7 +2,7 @@
 #include "Terrain.h"
 
 Terrain::Terrain(Shader* shader, wstring heightMapFile)
-	: shader(shader)
+	: Renderer(shader)
 {
 	heightMap = new Texture(heightMapFile);
 
@@ -12,26 +12,23 @@ Terrain::Terrain(Shader* shader, wstring heightMapFile)
 	
 	vertexBuffer = new VertexBuffer(vertices, vertexCount, sizeof(VertexTerrain));
 	indexBuffer = new IndexBuffer(indices, indexCount);
-
-	D3DXMatrixIdentity(&world);
 }
 
 Terrain::~Terrain()
 {
 	SafeDeleteArray(vertices);
 	SafeDeleteArray(indices);
-
-	SafeDelete(vertexBuffer);
-	SafeDelete(indexBuffer);
-
+	
 	SafeDelete(heightMap);
+
+	SafeDelete(baseMap);
+	SafeDelete(layerMap);
+	SafeDelete(alphaMap);
 }
 
 void Terrain::Update()
 {
-	shader->AsMatrix("World")->SetMatrix(world);
-	shader->AsMatrix("View")->SetMatrix(Context::Get()->View());
-	shader->AsMatrix("Projection")->SetMatrix(Context::Get()->Projection());
+	Super::Update();
 }
 
 void Terrain::Render()
@@ -50,12 +47,11 @@ void Terrain::Render()
 	shader->AsScalar("Tile")->SetFloat(tile);
 	shader->AsScalar("AlphaIntensity")->SetFloat(alphaIntensity);
 
-	vertexBuffer->Render();
-	indexBuffer->Render();
+	Super::Render();
 
 	D3D::GetDC()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	shader->DrawIndexed(0, pass, indexCount);
+	shader->DrawIndexed(0, Pass(), indexCount);
 }
 
 void Terrain::VisibleNormal()
