@@ -21,11 +21,16 @@
   <ItemGroup>
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="StackDemo.cpp" />
+    <ClCompile Include="StackList.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListDemo.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="StackArray.h" />
+    <ClInclude Include="StackDemo.h" />
+    <ClInclude Include="StackList.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

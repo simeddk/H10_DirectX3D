@@ -6,6 +6,12 @@
     <ClCompile Include="ListDemo.cpp">
       <Filter>List</Filter>
     </ClCompile>
+    <ClCompile Include="StackDemo.cpp">
+      <Filter>Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="StackList.cpp">
+      <Filter>Stack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -13,10 +19,22 @@
     <ClInclude Include="ListDemo.h">
       <Filter>List</Filter>
     </ClInclude>
+    <ClInclude Include="StackDemo.h">
+      <Filter>Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="StackArray.h">
+      <Filter>Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="StackList.h">
+      <Filter>Stack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
       <UniqueIdentifier>{bc847234-bde0-4d11-8e21-0c7d155c7e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stack">
+      <UniqueIdentifier>{1e5eac80-3c03-4bd6-87e4-093288bb0ba5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

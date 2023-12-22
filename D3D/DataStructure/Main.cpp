@@ -3,12 +3,13 @@
 #include "Systems/Window.h"
 
 #include "ListDemo.h"
+#include "StackDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new ListDemo());
+	Push(new StackDemo());
 }
 
 
@@ -25,6 +26,9 @@ void Main::Update()
 {
 	for (IExecute* exe : executes)
 		exe->Update();
+
+	if (Keyboard::Get()->Down(VK_ESCAPE))
+		exit(0);
 }
 
 void Main::PreRender()

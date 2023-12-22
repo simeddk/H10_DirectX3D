@@ -3,6 +3,7 @@
 
 void ListDemo::Initialize()
 {
+
 	Node* list = nullptr;
 
 	//Push
