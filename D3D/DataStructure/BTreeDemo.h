@@ -2,7 +2,7 @@
 
 #include "Systems/IExecute.h"
 
-class TreeDemo : public IExecute
+class BTreeDemo : public IExecute
 {
 public:
 	virtual void Initialize() override;

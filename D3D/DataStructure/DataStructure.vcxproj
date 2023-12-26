@@ -19,14 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BTreeDemo.cpp" />
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="QueueDemo.cpp" />
     <ClCompile Include="StackDemo.cpp" />
     <ClCompile Include="StackList.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TreeDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BTree.h" />
+    <ClInclude Include="BTreeDemo.h" />
     <ClInclude Include="ListDemo.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Queue.h" />
@@ -35,6 +39,8 @@
     <ClInclude Include="StackDemo.h" />
     <ClInclude Include="StackList.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Tree.h" />
+    <ClInclude Include="TreeDemo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

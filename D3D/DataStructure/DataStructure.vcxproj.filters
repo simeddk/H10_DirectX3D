@@ -15,6 +15,12 @@
     <ClCompile Include="QueueDemo.cpp">
       <Filter>Queue</Filter>
     </ClCompile>
+    <ClCompile Include="TreeDemo.cpp">
+      <Filter>Tree</Filter>
+    </ClCompile>
+    <ClCompile Include="BTreeDemo.cpp">
+      <Filter>Tree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -37,6 +43,18 @@
     <ClInclude Include="QueueDemo.h">
       <Filter>Queue</Filter>
     </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeDemo.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="BTree.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
+    <ClInclude Include="BTreeDemo.h">
+      <Filter>Tree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
@@ -47,6 +65,9 @@
     </Filter>
     <Filter Include="Queue">
       <UniqueIdentifier>{45f8499d-ca71-49f7-94d8-4519046cd26d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tree">
+      <UniqueIdentifier>{ec8f0b7f-ca82-4889-a7bf-40fb1cc4eb7e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

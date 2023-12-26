@@ -5,12 +5,14 @@
 #include "ListDemo.h"
 #include "StackDemo.h"
 #include "QueueDemo.h"
+#include "TreeDemo.h"
+#include "BTreeDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new QueueDemo());
+	Push(new BTreeDemo());
 }
 
 

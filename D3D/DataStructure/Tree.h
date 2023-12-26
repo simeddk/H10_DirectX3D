@@ -42,14 +42,14 @@ public:
 	void Print(Node* node, int depth)
 	{
 		for (int i = 0; i < depth; i++)
-			printf(L"¡æ");
+			printf("¡æ");
 
 		cout << node->Data << endl;
 
 		if (node->Child != nullptr)
-			Print(node->Data, depth + 1);
+			Print(node->Child, depth + 1);
 
-		else(node->Sibling != nullptr)
+		if (node->Sibling != nullptr)
 			Print(node->Sibling, depth);
 	}
 
