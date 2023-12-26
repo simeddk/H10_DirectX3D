@@ -12,6 +12,9 @@
     <ClCompile Include="StackList.cpp">
       <Filter>Stack</Filter>
     </ClCompile>
+    <ClCompile Include="QueueDemo.cpp">
+      <Filter>Queue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -28,6 +31,12 @@
     <ClInclude Include="StackList.h">
       <Filter>Stack</Filter>
     </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueDemo.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
@@ -35,6 +44,9 @@
     </Filter>
     <Filter Include="Stack">
       <UniqueIdentifier>{1e5eac80-3c03-4bd6-87e4-093288bb0ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Queue">
+      <UniqueIdentifier>{45f8499d-ca71-49f7-94d8-4519046cd26d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

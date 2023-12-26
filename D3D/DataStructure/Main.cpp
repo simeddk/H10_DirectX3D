@@ -4,12 +4,13 @@
 
 #include "ListDemo.h"
 #include "StackDemo.h"
+#include "QueueDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new StackDemo());
+	Push(new QueueDemo());
 }
 
 
