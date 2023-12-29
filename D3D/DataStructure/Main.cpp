@@ -7,12 +7,15 @@
 #include "QueueDemo.h"
 #include "TreeDemo.h"
 #include "BTreeDemo.h"
+#include "SortDemo.h"
+#include "BSearchDemo.h"
+#include "BinarySearchTreeDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new BTreeDemo());
+	Push(new BinarySearchTreeDemo());
 }
 
 

@@ -19,22 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearchTreeDemo.cpp" />
+    <ClCompile Include="BSearchDemo.cpp" />
     <ClCompile Include="BTreeDemo.cpp" />
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="QueueDemo.cpp" />
+    <ClCompile Include="SortDemo.cpp" />
     <ClCompile Include="StackDemo.cpp" />
     <ClCompile Include="StackList.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TreeDemo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
+    <ClInclude Include="BinarySearchTreeDemo.h" />
+    <ClInclude Include="BSearchDemo.h" />
     <ClInclude Include="BTree.h" />
     <ClInclude Include="BTreeDemo.h" />
     <ClInclude Include="ListDemo.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QueueDemo.h" />
+    <ClInclude Include="SortDemo.h" />
     <ClInclude Include="StackArray.h" />
     <ClInclude Include="StackDemo.h" />
     <ClInclude Include="StackList.h" />
