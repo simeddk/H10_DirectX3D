@@ -30,6 +30,9 @@
     <ClCompile Include="BinarySearchTreeDemo.cpp">
       <Filter>Tree</Filter>
     </ClCompile>
+    <ClCompile Include="HeapDemo.cpp">
+      <Filter>Heap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -76,6 +79,12 @@
     <ClInclude Include="BinarySearchTreeDemo.h">
       <Filter>Tree</Filter>
     </ClInclude>
+    <ClInclude Include="Heap.h">
+      <Filter>Heap</Filter>
+    </ClInclude>
+    <ClInclude Include="HeapDemo.h">
+      <Filter>Heap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
@@ -92,6 +101,9 @@
     </Filter>
     <Filter Include="Sort">
       <UniqueIdentifier>{909f6dce-eb65-4bf4-8402-95c73b2fd4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Heap">
+      <UniqueIdentifier>{3266c69a-48c6-46c4-b770-25a5be8ef63f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

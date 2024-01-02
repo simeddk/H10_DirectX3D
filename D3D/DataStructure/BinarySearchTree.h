@@ -31,6 +31,97 @@ public:
 		}
 	}
 
+	Node* Search(Node* node, T data, int& depth)
+	{
+		if (node == nullptr) return nullptr;
+		depth++;
+
+		if (node->Data == data)
+			return node;
+
+		else if (node->Data > data)
+			return Search(node->Left, data, depth);
+
+		else if (node->Data < data)
+			return Search(node->Right, data, depth);
+
+		return nullptr;
+	}
+
+	Node* SearchMin(Node* node)
+	{
+		if (node == nullptr) return nullptr;
+
+		if (node->Left == nullptr)
+			return node;
+		else
+			return SearchMin(node->Left);
+	}
+
+	Node* Remove(Node* node, Node* parent, T data)
+	{
+		Node* remove = nullptr;
+
+		if (node == nullptr) return nullptr;
+
+		//Search
+		if (node->Data > data)
+			remove = Remove(node->Left, node, data);
+
+		else if (node->Data < data)
+			remove = Remove(node->Right, node, data);
+		
+		//Find
+		else
+		{
+			remove = node;
+
+			//No Child
+			if (node->Left == nullptr && node->Right == nullptr)
+			{
+				if (parent->Left == node)
+					parent->Left = nullptr;
+				else
+					parent->Right = nullptr;
+			}
+			//Exist Children
+			else
+			{
+				//2 Children
+				if (node->Left != nullptr && node->Right != nullptr)
+				{
+					Node* minNode = SearchMin(node->Right);
+
+					minNode = Remove(node, nullptr, minNode->Data);
+					node->Data = minNode->Data;
+
+					return minNode;
+				}
+
+				//1 Child
+				else
+				{
+					Node* temp = nullptr;
+
+					if (node->Left != nullptr)
+						temp = node->Left;
+					else
+						temp = node->Right;
+
+					if (parent->Left == node)
+						parent->Left = temp;
+					else
+						parent->Right = temp;
+
+				}
+
+			}
+		}
+
+		return remove;
+
+	}
+
 	void InOrder(Node* node)
 	{
 		if (node == nullptr) return;

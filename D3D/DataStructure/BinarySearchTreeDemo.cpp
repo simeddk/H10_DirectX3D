@@ -23,5 +23,32 @@ void BinarySearchTreeDemo::Initialize()
 
 	tree.InOrder(root);
 
-	//UnresolvedMergeConflict. Search, Remove 할 차례임
+	int count = 0;
+	Tree::Node* result = tree.Search(root, 999, count);
+	cout << endl << endl;
+	cout << count << "번 만에 찾음, 찾은 값 : " << result->Data << endl;
+
+	cout << endl << endl;
+	result = tree.SearchMin(result);
+	cout << "이 그룹의 최소값은 " << result->Data << endl;
+	
+	Tree::Node* node = nullptr;
+	node = tree.Remove(root, nullptr, 22);
+	Tree::DestroyNode(node);
+
+	cout << endl << endl;
+	tree.InOrder(root);
+
+	tree.Insert(&root, Tree::CreateNode(19));
+	cout << endl << endl;
+	tree.InOrder(root);
+
+	tree.Insert(&root, Tree::CreateNode(18));
+	cout << endl << endl;
+	tree.InOrder(root);
+
+	node = tree.Remove(root, nullptr, 17);
+	Tree::DestroyNode(node);
+	cout << endl << endl;
+	tree.InOrder(root);
 }

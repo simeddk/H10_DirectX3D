@@ -10,12 +10,13 @@
 #include "SortDemo.h"
 #include "BSearchDemo.h"
 #include "BinarySearchTreeDemo.h"
+#include "HeapDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new BinarySearchTreeDemo());
+	Push(new HeapDemo());
 }
 
 
