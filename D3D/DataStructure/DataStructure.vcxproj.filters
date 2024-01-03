@@ -33,6 +33,12 @@
     <ClCompile Include="HeapDemo.cpp">
       <Filter>Heap</Filter>
     </ClCompile>
+    <ClCompile Include="PriorityQueueDemo.cpp">
+      <Filter>Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphDemo.cpp">
+      <Filter>Graph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -85,6 +91,18 @@
     <ClInclude Include="HeapDemo.h">
       <Filter>Heap</Filter>
     </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueueDemo.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphDemo.h">
+      <Filter>Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
@@ -104,6 +122,9 @@
     </Filter>
     <Filter Include="Heap">
       <UniqueIdentifier>{3266c69a-48c6-46c4-b770-25a5be8ef63f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graph">
+      <UniqueIdentifier>{72990868-92e4-4281-a6a6-6e1eea4db0d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

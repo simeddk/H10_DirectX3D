@@ -22,9 +22,11 @@
     <ClCompile Include="BinarySearchTreeDemo.cpp" />
     <ClCompile Include="BSearchDemo.cpp" />
     <ClCompile Include="BTreeDemo.cpp" />
+    <ClCompile Include="GraphDemo.cpp" />
     <ClCompile Include="HeapDemo.cpp" />
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PriorityQueueDemo.cpp" />
     <ClCompile Include="QueueDemo.cpp" />
     <ClCompile Include="SortDemo.cpp" />
     <ClCompile Include="StackDemo.cpp" />
@@ -38,10 +40,14 @@
     <ClInclude Include="BSearchDemo.h" />
     <ClInclude Include="BTree.h" />
     <ClInclude Include="BTreeDemo.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphDemo.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HeapDemo.h" />
     <ClInclude Include="ListDemo.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="PriorityQueueDemo.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="QueueDemo.h" />
     <ClInclude Include="SortDemo.h" />

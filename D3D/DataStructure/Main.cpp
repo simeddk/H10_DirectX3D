@@ -11,12 +11,14 @@
 #include "BSearchDemo.h"
 #include "BinarySearchTreeDemo.h"
 #include "HeapDemo.h"
+#include "PriorityQueueDemo.h"
+#include "GraphDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new HeapDemo());
+	Push(new GraphDemo());
 }
 
 
