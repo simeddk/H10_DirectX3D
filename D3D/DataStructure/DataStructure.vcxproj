@@ -27,6 +27,7 @@
     <ClCompile Include="HeapDemo.cpp" />
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OpenAddressDemo.cpp" />
     <ClCompile Include="PriorityQueueDemo.cpp" />
     <ClCompile Include="QueueDemo.cpp" />
     <ClCompile Include="SortDemo.cpp" />
@@ -49,6 +50,8 @@
     <ClInclude Include="HeapDemo.h" />
     <ClInclude Include="ListDemo.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="OpenAddress.h" />
+    <ClInclude Include="OpenAddressDemo.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="PriorityQueueDemo.h" />
     <ClInclude Include="Queue.h" />

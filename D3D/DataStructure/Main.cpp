@@ -14,12 +14,13 @@
 #include "PriorityQueueDemo.h"
 #include "GraphDemo.h"
 #include "HashDemo.h"
+#include "OpenAddressDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new HashDemo());
+	Push(new OpenAddressDemo());
 }
 
 

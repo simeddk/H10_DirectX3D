@@ -42,6 +42,9 @@
     <ClCompile Include="HashDemo.cpp">
       <Filter>Hash</Filter>
     </ClCompile>
+    <ClCompile Include="OpenAddressDemo.cpp">
+      <Filter>Hash</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -110,6 +113,12 @@
       <Filter>Hash</Filter>
     </ClInclude>
     <ClInclude Include="Chaining.h">
+      <Filter>Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenAddress.h">
+      <Filter>Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenAddressDemo.h">
       <Filter>Hash</Filter>
     </ClInclude>
   </ItemGroup>
