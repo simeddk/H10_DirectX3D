@@ -13,12 +13,13 @@
 #include "HeapDemo.h"
 #include "PriorityQueueDemo.h"
 #include "GraphDemo.h"
+#include "HashDemo.h"
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 void Main::Initialize()
 {
-	Push(new GraphDemo());
+	Push(new HashDemo());
 }
 
 

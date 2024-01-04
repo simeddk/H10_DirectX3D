@@ -23,6 +23,7 @@
     <ClCompile Include="BSearchDemo.cpp" />
     <ClCompile Include="BTreeDemo.cpp" />
     <ClCompile Include="GraphDemo.cpp" />
+    <ClCompile Include="HashDemo.cpp" />
     <ClCompile Include="HeapDemo.cpp" />
     <ClCompile Include="ListDemo.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -40,8 +41,10 @@
     <ClInclude Include="BSearchDemo.h" />
     <ClInclude Include="BTree.h" />
     <ClInclude Include="BTreeDemo.h" />
+    <ClInclude Include="Chaining.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="GraphDemo.h" />
+    <ClInclude Include="HashDemo.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HeapDemo.h" />
     <ClInclude Include="ListDemo.h" />

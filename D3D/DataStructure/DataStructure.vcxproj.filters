@@ -39,6 +39,9 @@
     <ClCompile Include="GraphDemo.cpp">
       <Filter>Graph</Filter>
     </ClCompile>
+    <ClCompile Include="HashDemo.cpp">
+      <Filter>Hash</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -103,6 +106,12 @@
     <ClInclude Include="GraphDemo.h">
       <Filter>Graph</Filter>
     </ClInclude>
+    <ClInclude Include="HashDemo.h">
+      <Filter>Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaining.h">
+      <Filter>Hash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="List">
@@ -125,6 +134,9 @@
     </Filter>
     <Filter Include="Graph">
       <UniqueIdentifier>{72990868-92e4-4281-a6a6-6e1eea4db0d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hash">
+      <UniqueIdentifier>{0e5e168b-e268-4d75-b56c-4ddf26501d54}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
