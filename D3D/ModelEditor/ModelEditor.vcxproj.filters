@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Converter.cpp">
+      <Filter>Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportFile.cpp">
+      <Filter>Execute</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Converter.h">
+      <Filter>Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportFile.h">
+      <Filter>Execute</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Converter">
+      <UniqueIdentifier>{e427c63a-5972-4a53-828a-7a3d96ddd786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execute">
+      <UniqueIdentifier>{8e250392-245c-4813-bfe3-1b9bf1bffe0c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
