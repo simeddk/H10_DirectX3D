@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Converter.h"
 #include "Types.h"
+#include "Utilities/BinaryFile.h"
 
 //-----------------------------------------------------
 //Create Scene
@@ -13,6 +14,17 @@ Converter::Converter()
 Converter::~Converter()
 {
 	SafeDelete(importer);
+
+	for (asBone* bone : bones)
+		SafeDelete(bone);
+
+	for (asMesh* mesh : meshes)
+	{
+		for (asMeshPart* part : mesh->MeshParts)
+			SafeDelete(part);
+
+		SafeDelete(mesh);
+	}
 }
 
 void Converter::ReadFile(wstring file)
@@ -45,19 +57,6 @@ void Converter::ExportMesh(wstring savePath)
 {
 	ReadBoneData(scene->mRootNode, -1, -1);
 	WriteMeshData(L"../../_Models/" + savePath + L".mesh");
-
-	//csv Test
-	{
-		FILE* buffer;
-		fopen_s(&buffer, "../Bones.csv", "w");
-
-		for (asBone* bone : bones)
-		{
-			fprintf(buffer, "%d,%d,%s\n", bone->Index, bone->Parent, bone->Name.c_str());
-		}
-
-		fclose(buffer);
-	}
 }
 
 void Converter::ReadBoneData(aiNode* node, int index, int parent)
@@ -87,9 +86,101 @@ void Converter::ReadBoneData(aiNode* node, int index, int parent)
 
 void Converter::ReadMeshData(aiNode* node, int index)
 {
-	//UnresolvedMergeConflict. 24242424
+	//Ignore Unused Bone
+	if (node->mNumMeshes < 1) return;
+
+	//Get Mesh Data
+	asMesh* mesh = new asMesh();
+	mesh->BoneIndex = index;
+
+	for (UINT i = 0; i < node->mNumMeshes; i++)
+	{
+		UINT index = node->mMeshes[i];
+		aiMesh* srcMesh = scene->mMeshes[index];
+
+		UINT startVertex = mesh->Vertices.size();
+		UINT startIndex = mesh->Indices.size();
+
+		//Get Vertex Data
+		for (UINT v = 0; v < srcMesh->mNumVertices; v++)
+		{
+			Model::VertexModel vertex;
+			memcpy(&vertex.Position, &srcMesh->mVertices[v], sizeof(Vector3));
+
+			if (srcMesh->HasTextureCoords(0))
+				memcpy(&vertex.Uv, &srcMesh->mTextureCoords[0][v], sizeof(Vector2));
+
+			if (srcMesh->HasNormals())
+				memcpy(&vertex.Normal, &srcMesh->mNormals[v], sizeof(Vector3));
+
+			mesh->Vertices.push_back(vertex);
+		}
+
+		//Get Index Data
+		for (UINT f = 0; f < srcMesh->mNumFaces; f++)
+		{
+			aiFace& face = srcMesh->mFaces[f];
+
+			for (UINT k = 0; k < face.mNumIndices; k++)
+				mesh->Indices.push_back(face.mIndices[k] + startVertex);
+		}
+		
+		//Get MeshPart Data from Material Name
+		aiMaterial* materail = scene->mMaterials[srcMesh->mMaterialIndex];
+
+		asMeshPart* meshPart = new asMeshPart();
+		meshPart->MatrialName = materail->GetName().C_Str();
+		meshPart->StartVertex = startVertex;
+		meshPart->StartIndex = startIndex;
+		meshPart->VertexCount = srcMesh->mNumVertices;
+		meshPart->IndexCount = srcMesh->mNumFaces * srcMesh->mFaces->mNumIndices;
+
+		mesh->MeshParts.push_back(meshPart);
+	}
+
+	meshes.push_back(mesh);
 }
 
 void Converter::WriteMeshData(wstring savePath)
 {
+	Path::CreateFolders(Path::GetDirectoryName(savePath));
+
+	BinaryWriter* w = new BinaryWriter(savePath);
+
+	//Save Bones
+	w->UInt(bones.size());
+	for (asBone* bone : bones)
+	{
+		w->Int(bone->Index);
+		w->String(bone->Name);
+		w->Int(bone->Parent);
+		w->Matrix(bone->Transform);
+	}
+
+	//Save Meshes
+	w->UInt(meshes.size());
+	for (asMesh* mesh : meshes)
+	{
+		w->Int(mesh->BoneIndex);
+
+		w->UInt(mesh->Vertices.size());
+		w->Byte(&mesh->Vertices[0], sizeof(Model::VertexModel) * mesh->Vertices.size());
+
+		w->UInt(mesh->Indices.size());
+		w->Byte(&mesh->Indices[0], sizeof(UINT) * mesh->Indices.size());
+
+		w->UInt(mesh->MeshParts.size());
+		for (asMeshPart* part : mesh->MeshParts)
+		{
+			w->String(part->MatrialName);
+
+			w->UInt(part->StartVertex);
+			w->UInt(part->VertexCount);
+
+			w->UInt(part->StartIndex);
+			w->UInt(part->IndexCount);
+		}
+	}
+
+	SafeDelete(w);
 }
