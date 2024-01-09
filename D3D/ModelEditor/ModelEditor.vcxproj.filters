@@ -9,6 +9,9 @@
     <ClCompile Include="ExportFile.cpp">
       <Filter>Execute</Filter>
     </ClCompile>
+    <ClCompile Include="ModelDemo.cpp">
+      <Filter>Demo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h" />
@@ -20,6 +23,9 @@
       <Filter>Execute</Filter>
     </ClInclude>
     <ClInclude Include="Types.h" />
+    <ClInclude Include="ModelDemo.h">
+      <Filter>Demo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Converter">
@@ -27,6 +33,9 @@
     </Filter>
     <Filter Include="Execute">
       <UniqueIdentifier>{8e250392-245c-4813-bfe3-1b9bf1bffe0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo">
+      <UniqueIdentifier>{4d23c524-572e-43c1-8dab-5ea76f805ce9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

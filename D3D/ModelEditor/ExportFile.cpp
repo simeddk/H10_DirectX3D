@@ -4,7 +4,7 @@
 
 void ExportFile::Initialize()
 {
-	Tank();
+	//Tank();
 }
 
 void ExportFile::Tank()

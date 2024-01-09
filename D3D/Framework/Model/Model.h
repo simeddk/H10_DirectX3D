@@ -18,7 +18,7 @@ private:
 
 private:
 	//Read *.mesh File
-	void ReadMesh();
+	void ReadMesh(wstring file);
 
 private:
 	void BindBone(); //Make Tree

@@ -20,8 +20,8 @@ public:
 	int ParentIndex() { return parentIndex; }
 	ModelBone* Parent() { return parent; }
 
-	Matrix Transform() { return transform; }
-	void Tranform(Matrix& matrix) { transform = matrix; }
+	Matrix& Transform() { return transform; }
+	void Transform(Matrix& matrix) { transform = matrix; }
 
 	vector<ModelBone*>& Children() { return children; }
 
@@ -121,7 +121,7 @@ private:
 	void Update();
 	void Render();
 
-	void Biding(Model* model);
+	void Binding(Model* model);
 	void SetShader(Shader* shader);
 
 	void Pass(UINT val) { pass = val; }

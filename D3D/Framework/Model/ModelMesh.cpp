@@ -35,7 +35,7 @@ void ModelMesh::Binding(Model* model)
 	indexBuffer = new IndexBuffer(indices, indexCount);
 
 	for (ModelMeshPart* part : meshParts)
-		part->Binding(this);
+		part->Binding(model);
 }
 
 void ModelMesh::Pass(UINT val)
@@ -121,7 +121,7 @@ void ModelMeshPart::Render()
 	shader->DrawIndexed(0, pass, indexCount, startIndex);
 }
 
-void ModelMeshPart::Biding(Model* model)
+void ModelMeshPart::Binding(Model* model)
 {
 }
 
