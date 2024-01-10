@@ -63,7 +63,8 @@ float4 PS(VertexOutput input) : SV_Target
 
 float4 PS_WireFrame(VertexOutput input) : SV_Target
 {
-	return float4(0.75, 0.75, 0.75, 1);
+	return float4(1, 0, 0, 1);
+	//return float4(0.75, 0.75, 0.75, 1);
 }
 
 //-----------------------------------------------------------------------------

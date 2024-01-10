@@ -2,6 +2,9 @@
 
 #include "stdafx.h"
 
+//-----------------------------------------------------------------------------
+//Bone
+//-----------------------------------------------------------------------------
 struct asBone
 {
 	int Index;
@@ -11,6 +14,9 @@ struct asBone
 	Matrix Transform;
 };
 
+//-----------------------------------------------------------------------------
+//Mesh
+//-----------------------------------------------------------------------------
 struct asMeshPart
 {
 	string MatrialName;
@@ -29,4 +35,21 @@ struct asMesh
 	vector<UINT > Indices;
 
 	vector<asMeshPart*> MeshParts;
+};
+
+//-----------------------------------------------------------------------------
+//Material
+//-----------------------------------------------------------------------------
+struct asMaterial
+{
+	string Name;
+
+	Color Ambient;
+	Color Diffuse;
+	Color Specular;
+	Color Emissive;
+
+	string DiffuseFile;
+	string SpecularFile;
+	string NormalFile;
 };
