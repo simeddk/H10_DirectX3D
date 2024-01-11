@@ -20,6 +20,9 @@ private:
 	//Read *.mesh File
 	void ReadMesh(wstring file);
 
+	//Read *.material File
+	void ReadMaterial(wstring file);
+
 private:
 	void BindBone(); //Make Tree
 	void BindMesh(); //Call ModelMesh::Binding
@@ -34,6 +37,10 @@ public:
 	vector<ModelMesh*>& Meshes() { return meshes; }
 	ModelMesh* MeshByIndex(UINT index) { return meshes[index]; }
 
+	UINT MaterialCount() { return materials.size(); }
+	vector<Material*>& Materials() { return materials; }
+	Material* MaterialByIndex(UINT index) { return materials[index]; }
+	Material* MaterialByName(wstring name);
 
 public:
 	struct VertexModel
@@ -62,4 +69,5 @@ private:
 
 	vector<ModelBone*> bones;
 	vector<ModelMesh*> meshes;
+	vector<Material*> materials;
 };

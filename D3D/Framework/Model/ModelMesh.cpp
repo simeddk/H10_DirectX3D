@@ -123,6 +123,7 @@ void ModelMeshPart::Render()
 
 void ModelMeshPart::Binding(Model* model)
 {
+	
 }
 
 void ModelMeshPart::SetShader(Shader* shader)
