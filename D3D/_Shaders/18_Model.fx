@@ -1,4 +1,5 @@
 #include "00_Global.fx"
+#include "00_Light.fx"
 
 //-----------------------------------------------------------------------------
 //Parmameters
@@ -53,7 +54,7 @@ VertexOutput VS(VertexModel input)
 
 float4 PS(VertexOutput input) : SV_Target
 {
-	float4 diffuse = float4(1, 1, 1, 1);
+	float4 diffuse = DiffuseMap.Sample(LinearSampler, input.Uv);
 	
 	float3 normal = normalize(input.Normal);
 	float lambert = saturate(dot(normal, -LightDirection));

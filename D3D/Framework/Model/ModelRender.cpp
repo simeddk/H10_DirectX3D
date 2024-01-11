@@ -43,6 +43,11 @@ void ModelRender::Render()
 void ModelRender::ReadMesh(wstring file)
 {
 	model->ReadMesh(file);
+}
+
+void ModelRender::ReadMaterial(wstring file)
+{
+	model->ReadMaterial(file);
 
 	bRead = true;
 }

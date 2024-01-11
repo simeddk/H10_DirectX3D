@@ -124,9 +124,91 @@ void Model::ReadMaterial(wstring file)
 	file = L"../../_Textures/" + file + L".material";
 
 	Xml::XMLDocument* document = new Xml::XMLDocument();
-	document->LoadFile(file);
+	Xml::XMLError error = document->LoadFile(String::ToString(file).c_str());
+	assert(error == Xml::XML_SUCCESS);
+
+	//<Materials>
+	Xml::XMLElement* root = document->FirstChildElement();
+	
+	//<Mateial>
+	Xml::XMLElement* materialNode = root->FirstChildElement();
+
+	do
+	{
+		Material* material = new Material();
+
+		Xml::XMLElement* node = nullptr;
+
+		//<Name>
+		node = materialNode->FirstChildElement();
+		material->Name(String::ToWString(node->GetText()));
+
+		wstring directory = Path::GetDirectoryName(file);
+		String::Replace(&directory, L"../../_Textures", L"");
+
+		wstring texture = L"";
+
+		//<DiffuseFile>
+		node = node->NextSiblingElement();
+		texture = String::ToWString(node->GetText());
+		if (texture.length() > 0)
+			material->DiffuseMap(directory + texture);
+
+		//<SpecluarFile>
+		node = node->NextSiblingElement();
+		texture = String::ToWString(node->GetText());
+		if (texture.length() > 0)
+			material->SpecularMap(directory + texture);
+
+		//<NormalFile>
+		node = node->NextSiblingElement();
+		texture = String::ToWString(node->GetText());
+		if (texture.length() > 0)
+			material->NormalMap(directory + texture);
+
+		Color color;
+
+		//<Ambient>
+		node = node->NextSiblingElement();
+		color.r =  node->FloatAttribute("R");
+		color.g =  node->FloatAttribute("G");
+		color.b =  node->FloatAttribute("B");
+		color.a =  node->FloatAttribute("A");
+		material->Ambient(color);
+
+		//<Diffuse>
+		node = node->NextSiblingElement();
+		color.r = node->FloatAttribute("R");
+		color.g = node->FloatAttribute("G");
+		color.b = node->FloatAttribute("B");
+		color.a = node->FloatAttribute("A");
+		material->Diffuse(color);
+
+		//<Specular>
+		node = node->NextSiblingElement();
+		color.r = node->FloatAttribute("R");
+		color.g = node->FloatAttribute("G");
+		color.b = node->FloatAttribute("B");
+		color.a = node->FloatAttribute("A");
+		material->Specular(color);
+
+		//<Emissive>
+		node = node->NextSiblingElement();
+		color.r = node->FloatAttribute("R");
+		color.g = node->FloatAttribute("G");
+		color.b = node->FloatAttribute("B");
+		color.a = node->FloatAttribute("A");
+		material->Emissive(color);
+
+		materials.push_back(material);
+
+		materialNode = materialNode->NextSiblingElement();
+
+	} while (materialNode != nullptr);
+
 
 	BindMesh();
+
 }
 
 void Model::BindBone()
@@ -172,5 +254,11 @@ ModelBone* Model::BoneByName(wstring name)
 
 Material* Model::MaterialByName(wstring name)
 {
+	for (Material* material : materials)
+	{
+		if (name == material->Name())
+			return material;
+	}
+
 	return nullptr;
 }
