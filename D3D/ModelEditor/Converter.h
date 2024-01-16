@@ -35,6 +35,18 @@ private:
 	void WriteMaterialData(wstring savePath);
 	string WriteTexture(string saveFolder, string file); //Copy to Texture Folder
 
+//----------------------------------------------------------
+//Read Clip Data from scene -> Write to *.Clip(BIN) file
+//----------------------------------------------------------
+public:
+	void ExportAnimClip(UINT index, wstring savePath);
+
+private:
+	struct asClip* ReadClipData(aiAnimation* animation); //Read from Anim.fbx -> Keyframe
+	void ReadKeyframeData(struct asClip* clip, aiNode* node, vector<struct asClipNode>& aniNodeInfos); //Retarget
+	void WriteClipData(struct asClip* clip, wstring savePath);
+
+
 private:
 	wstring file;
 
