@@ -116,6 +116,9 @@
     <ClCompile Include="Renders\Material.cpp">
       <Filter>Renders</Filter>
     </ClCompile>
+    <ClCompile Include="Model\ModelClip.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -235,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="Renders\Material.h">
       <Filter>Renders</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\ModelClip.h">
+      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

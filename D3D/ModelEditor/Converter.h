@@ -21,6 +21,7 @@ public:
 private:
 	void ReadBoneData(aiNode* node, int index, int parent); //aiNode is Mesh Bone
 	void ReadMeshData(aiNode* node, int index);
+	void ReadSkidData();
 	void WriteMeshData(wstring savePath);
 
 //----------------------------------------------------------

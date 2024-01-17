@@ -53,7 +53,7 @@ struct asBlendWeight
 
 		switch (iterator)
 		{
-			case 0: Indices.x = i; Weigths.x = w;  break;
+			case 0: Indices.x = i; Weigths.x = w; break;
 			case 1: Indices.y = i; Weigths.y = w; break;
 			case 2: Indices.z = i; Weigths.z = w; break;
 			case 3: Indices.w = i; Weigths.w = w; break;
@@ -96,6 +96,7 @@ public:
 			BoneWeights.push_back(Pair(boneIndex, boneWeights));
 	}
 
+	//Return to blendWeights(Call By Reference)
 	void GetBlendWeigts(asBlendWeight& blendWeights)
 	{
 		for (UINT i = 0; i < BoneWeights.size(); i++)
@@ -106,10 +107,32 @@ public:
 		}
 	}
 
-	//UnresolvedMergeConflict. 가중치 정보를 0~1 사이 값으로 비율화를 하겠음..
+	//Additional Bone Weight <= 1
 	void Normalize()
 	{
+		float totalWeight = 0.f;
+		int i = 0;
 
+		vector<Pair>::iterator it = BoneWeights.begin();
+		while (it != BoneWeights.end())
+		{
+			if (i < 4)
+			{
+				totalWeight += it->second;
+				i++; it++;
+			}
+			else
+				it = BoneWeights.erase(it);
+		}
+
+		float scale = 1.f / totalWeight;
+
+		it = BoneWeights.begin();
+		while (it != BoneWeights.end())
+		{
+			it->second *= scale;
+			it++;
+		}
 	}
 };
 
