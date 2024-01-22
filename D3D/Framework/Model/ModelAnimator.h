@@ -49,6 +49,27 @@ private:
 
 private:
 	ID3D11Texture2D* texture = nullptr;
+	ID3D11ShaderResourceView* transformsSRV;
+	ID3DX11EffectShaderResourceVariable* sTransformsSRV;
+
+private:
+	struct KeyframeDesc
+	{
+		int Clip = 0;
+
+		UINT CurrFrame = 20;
+		UINT NextFrame = 0;
+
+		float Time = 0.f;
+		float RunningTime = 0.f;
+
+		float Speed = 1.f;
+
+		Vector2 Padding;
+	} keyframeDesc;
+
+	ConstantBuffer* frameBuffer;
+	ID3DX11EffectConstantBuffer* sFrameBuffer;
 
 private:
 	Shader* shader;

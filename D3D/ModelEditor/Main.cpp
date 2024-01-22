@@ -4,11 +4,12 @@
 
 #include "ExportFile.h"
 #include "ModelDemo.h"
+#include "AnimationDemo.h"
 
 void Main::Initialize()
 {
 	Push(new ExportFile());
-	Push(new ModelDemo());
+	Push(new AnimationDemo());
 }
 
 

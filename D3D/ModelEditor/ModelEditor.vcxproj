@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationDemo.cpp" />
     <ClCompile Include="Converter.cpp" />
     <ClCompile Include="ExportFile.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -26,6 +27,7 @@
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationDemo.h" />
     <ClInclude Include="Converter.h" />
     <ClInclude Include="ExportFile.h" />
     <ClInclude Include="Main.h" />

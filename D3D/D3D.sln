@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Shaders", "_Shaders", "{DA
 		_Shaders\16_CubeMap.fx = _Shaders\16_CubeMap.fx
 		_Shaders\17_CubeSky.fx = _Shaders\17_CubeSky.fx
 		_Shaders\18_Model.fx = _Shaders\18_Model.fx
+		_Shaders\19_Animation.fx = _Shaders\19_Animation.fx
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataStructure", "DataStructure\DataStructure.vcxproj", "{2BB7104B-E88E-4285-94FF-12B589201617}"
