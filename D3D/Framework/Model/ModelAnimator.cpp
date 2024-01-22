@@ -76,6 +76,38 @@ void ModelAnimator::CreateTexture()
 
 	for (UINT i = 0; i < model->ClipCount(); i++)
 		CreateClipTransforms(i);
+
+	//Create Texture
+	{
+		D3D11_TEXTURE2D_DESC desc;
+		ZeroMemory(&desc, sizeof(D3D11_TEXTURE2D_DESC));
+		desc.Width = MAX_MODEL_BONES * 4;
+		desc.Height = MAX_MODEL_FRAMES;
+		desc.ArraySize = model->ClipCount();
+		desc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT; //-> 16Byte
+		desc.Usage = D3D11_USAGE_IMMUTABLE;
+		desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+		desc.MipLevels = 1;
+		desc.SampleDesc.Count = 1;
+
+		UINT pageSize = MAX_MODEL_BONES * MAX_MODEL_FRAMES * sizeof(Matrix);
+		void* p = VirtualAlloc(nullptr, pageSize * model->ClipCount(), MEM_RESERVE, PAGE_READWRITE);
+
+		for (UINT c = 0; c < model->ClipCount(); c++)
+		{
+			for (UINT k = 0; k < MAX_MODEL_FRAMES; k++)
+			{
+				void* temp = (BYTE*)p + MAX_MODEL_BONES * k * sizeof(Matrix);
+			}
+		}
+
+
+		D3D11_SUBRESOURCE_DATA* subResource = new D3D11_SUBRESOURCE_DATA[model->ClipCount()];
+		//Todo.
+		Check(D3D::GetDevice()->CreateTexture2D(&desc, subResource, &texture));
+
+		SafeDelete(subResource);
+	}
 }
 
 void ModelAnimator::CreateClipTransforms(UINT clipIndex)
@@ -119,9 +151,10 @@ void ModelAnimator::CreateClipTransforms(UINT clipIndex)
 				D3DXMatrixIdentity(&animation);
 			}
 
-			//UnresolvedMergeConflict. 설명하기..
 			bones[b] = animation * parent;
 			clipTransforms[clipIndex].Transform[f][b] = inv * bones[b];
+			//inv * animation * parent;
+			
 		}
 	}
 
