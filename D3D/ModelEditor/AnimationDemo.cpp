@@ -31,10 +31,49 @@ void AnimationDemo::Destroy()
 
 void AnimationDemo::Update()
 {
-	static Vector3 LightDirection = Vector3(-1, -1, +1);
-	ImGui::SliderFloat3("Light Direction", LightDirection, -1, +1);
-	shader->AsVector("LightDirection")->SetFloatVector(LightDirection);
-	planeShader->AsVector("LightDirection")->SetFloatVector(LightDirection);
+	//Lambert
+	{
+		static Vector3 LightDirection = Vector3(-1, -1, +1);
+		ImGui::SliderFloat3("Light Direction", LightDirection, -1, +1);
+		shader->AsVector("LightDirection")->SetFloatVector(LightDirection);
+		planeShader->AsVector("LightDirection")->SetFloatVector(LightDirection);
+	}
+
+	//Clip Test
+	{
+		static int clip = 0;
+		static float speed = 1.f;
+		static float takeTime = 0.1f;
+
+		static bool bBlendMode = false;
+		static float blendAlpha = 0.f;
+
+		ImGui::Checkbox("BlendMode", &bBlendMode);
+		
+		//Tweening
+		if (bBlendMode == false)
+		{
+			ImGui::SliderInt("Clip", &clip, 0, kachujin->GetModel()->ClipCount() - 1);
+
+			const char* clipName[] = { "Idle", "Walk", "Run", "Slash", "Dance" };
+			ImGui::Text("%s", clipName[clip]);
+			ImGui::SliderFloat("Speed", &speed, 0.1f, 5.f);
+			ImGui::SliderFloat("TakeTime", &takeTime, 0.1f, 5.f);
+
+			if (ImGui::Button("Apply"))
+				kachujin->PlayTweenMode(clip, speed, takeTime);
+		}
+		//Blending
+		else
+		{
+			ImGui::SliderFloat("BlendAlpha", &blendAlpha, 0.f, 2.f);
+			kachujin->SetBlendAlpha(blendAlpha);
+
+			if (ImGui::Button("Apply"))
+				kachujin->PlayBlendMode(0, 1, 2);
+		}
+		
+	}
 
 	sky->Update();
 	plane->Update();
@@ -65,6 +104,10 @@ void AnimationDemo::Kachujin()
 	kachujin->ReadMesh(L"Kachujin/Mesh");
 	kachujin->ReadMaterial(L"Kachujin/Mesh");
 	kachujin->ReadClip(L"Kachujin/Idle");
+	kachujin->ReadClip(L"Kachujin/Walk");
+	kachujin->ReadClip(L"Kachujin/Run");
+	kachujin->ReadClip(L"Kachujin/Slash");
+	kachujin->ReadClip(L"Kachujin/Uprock");
 
 	kachujin->GetTransform()->Position(0, 0, 0);
 	kachujin->GetTransform()->Scale(0.01f, 0.01f, 0.01f);
